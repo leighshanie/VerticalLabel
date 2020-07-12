@@ -8,13 +8,13 @@
 
 import UIKit
 
-func sizeHeightWithText(labelText: String, fontSize: CGFloat, textAttributes: [String : Any]) -> CGRect {
+func sizeHeightWithText(labelText: String, fontSize: CGFloat, textAttributes: [NSAttributedString.Key : Any]) -> CGRect {
     return labelText.boundingRect(with: CGSize.init(width: fontSize, height: CGFloat.greatestFiniteMagnitude), options: .usesLineFragmentOrigin, attributes: textAttributes, context: nil)
 }
 
 class VerticalLabel: UILabel {
     
-    var textAttributes: [String : Any]!
+    var textAttributes: [NSAttributedString.Key : Any]!
     
     // convenience init 方法 (相当于OC中自定义构造方法)
     convenience init(fontName: String, labelText: String, fontSize: CGFloat, lineSpacing: CGFloat) {
@@ -26,7 +26,7 @@ class VerticalLabel: UILabel {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = lineSpacing
         
-        textAttributes = [NSFontAttributeName: font, NSParagraphStyleAttributeName: paragraphStyle]
+        textAttributes = [NSAttributedString.Key.font: font, NSAttributedString.Key.paragraphStyle: paragraphStyle]
         
         let labelSize = sizeHeightWithText(labelText: labelText, fontSize: fontSize, textAttributes: textAttributes)
         

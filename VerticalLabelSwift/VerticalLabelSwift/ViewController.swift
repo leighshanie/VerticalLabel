@@ -28,10 +28,16 @@ class ViewController: UIViewController {
 //        label.numberOfLines = 0
 //        view.addSubview(label)
         
-        let verticalLabel: VerticalLabel = VerticalLabel(fontName: "Wyue-GutiFangsong-NC", labelText: "竖排文字", fontSize: 22.0, lineSpacing: 3.0)
+        let verticalLabel: VerticalLabel = VerticalLabel(fontName: "Wyue-GutiFangsong-NC", labelText: "春眠不觉晓", fontSize: 22.0, lineSpacing: 3.0)
         let labelSize = verticalLabel.frame.size
         verticalLabel.frame = CGRect.init(x: 40, y: 40, width: labelSize.width, height: labelSize.height)
+        
+        let verticalLabel1: VerticalLabel = VerticalLabel(fontName: "Wyue-GutiFangsong-NC", labelText: "处处闻啼鸟", fontSize: 22.0, lineSpacing: 3.0)
+        let labelSize1 = verticalLabel1.frame.size
+        verticalLabel1.frame = CGRect.init(x: 100, y: 100, width: labelSize1.width, height: labelSize1.height)
+        
         view.addSubview(verticalLabel)
+        view.addSubview(verticalLabel1)
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,7 +45,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func sizeHeightWithText(labelText: String, fontSize: CGFloat, textAttributes: [String : Any]) -> CGRect {
+    func sizeHeightWithText(labelText: String, fontSize: CGFloat, textAttributes: [NSAttributedString.Key : Any]) -> CGRect {
         return labelText.boundingRect(with: CGSize.init(width: fontSize, height: CGFloat.greatestFiniteMagnitude), options: .usesLineFragmentOrigin, attributes: textAttributes, context: nil)
     }
 
